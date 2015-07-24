@@ -1,6 +1,6 @@
 # PhonenumberJp
 
-Hyphenate phonenumber in Japan.
+Hyphenate phone number in Japan.
 Based on http://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/number_shitei.html
 
 ## Installation
