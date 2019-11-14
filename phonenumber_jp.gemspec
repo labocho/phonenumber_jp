@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Hyphenate Japanese phone number"
   spec.description   = "Hyphenate Japanese phone number"
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/labocho/phonenumber_jp"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

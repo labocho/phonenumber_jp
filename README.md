@@ -1,6 +1,7 @@
 # PhonenumberJp
 
-Phonenumber hypenates Japanese phonenumber string.
+Phonenumber hypenates Japanese phone number.
+Based on http://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/number_shitei.html
 
 ## Installation
 
