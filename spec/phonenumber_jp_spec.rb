@@ -67,4 +67,28 @@ describe PhonenumberJp do
       it { should eq "9999999999" }
     end
   end
+
+  describe "valid?" do
+    subject { PhonenumberJp.valid?(val) }
+
+    context "Area code 059" do
+      let(:val) { "0592123456" }
+      it { should eq true }
+    end
+
+    context "+81" do
+      let(:val) { "+81594123456" }
+      it { should eq true }
+    end
+
+    context "not match" do
+      let(:val) { "9999999999" }
+      it { should eq false }
+    end
+
+    context "invalid local" do
+      let(:val) { "+81000000000" }
+      it { should eq false }
+    end
+  end
 end
