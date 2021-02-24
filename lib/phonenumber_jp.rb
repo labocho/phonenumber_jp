@@ -30,10 +30,10 @@ module PhonenumberJp
 
       case phonenumber
       when /^\+81/
-        local = split("0" + phonenumber[3..-1])
+        local = split("0" + phonenumber[3..-1].to_s) # steep does not know that `phonenumber[3..-1]` will be return String always. Call `to_s` to tell it is String.
         return [phonenumber] if local.length < 2
 
-        local[0] = local[0][1..-1]
+        local[0] = local[0][1..-1].to_s # steep does not know that `local[0][1..-1]` will be return String always. Call `to_s` to tell it is String.
         ["+81"] + local
       when /^(050)(\d\d\d\d)(\d\d\d\d)$/, # IP 電話
           /^(0800)(\d\d\d)(\d\d\d\d)$/, # フリーダイヤル

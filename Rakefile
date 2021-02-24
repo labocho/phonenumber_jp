@@ -35,3 +35,9 @@ namespace "area_codes" do
     ruby "scripts/update_area_codes_list.rb"
   end
 end
+
+namespace "steep" do
+  task "check" do
+    sh "steep check"
+  end
+end

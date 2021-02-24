@@ -1,0 +1,11 @@
+module PhonenumberJp
+  AREA_CODES: Array[String]
+  VERSION: String
+
+  def self.hyphenate: (String | nil) -> (String | nil)
+  def self.valid?: (String | nil) -> bool
+
+  private
+  def self.split: (String | nil) -> Array[String]
+  def self.find_area_code: (String) -> (String | nil)
+end
