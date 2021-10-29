@@ -3,9 +3,10 @@ require "open-uri"
 require "uri"
 require "nokogiri"
 
-URL = URI("http://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/number_shitei.html")
+URL = URI("https://www.soumu.go.jp/main_sosiki/joho_tsusin/top/tel_number/number_shitei.html")
 
-html = open(URL.to_s, &:read)
+html = URI.open(URL.to_s, &:read).force_encoding("cp932")
+
 doc = Nokogiri.parse(html)
 xls_urls = []
 
@@ -19,6 +20,6 @@ xls_urls.each do |url|
   basename = url.gsub(%r(.*/), "")
   dest = "#{__dir__}/../tmp/xls/#{basename}"
   warn "Download #{url} to #{dest}"
-  File.write(dest, open(url, &:read))
+  File.write(dest, URI.open(url, &:read))
 end
 # rubocop: enable Security/Open

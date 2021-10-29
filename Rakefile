@@ -10,7 +10,7 @@ file "tmp/xls2csv.jar" do
   warn "Download xls2csv.jar"
   File.write(
     "tmp/xls2csv.jar",
-    open("https://github.com/labocho/xls2csv/releases/download/v0.1.1/xls2csv.jar", &:read),
+    URI.open("https://github.com/labocho/xls2csv/releases/download/v0.1.1/xls2csv.jar", &:read),
   )
 end
 
