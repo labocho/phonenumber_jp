@@ -27,9 +27,14 @@ describe PhonenumberJp do
       it { should eq "080-1234-5678" }
     end
 
+    context "14 digit data transfer number" do
+      let(:val) { "02001234567890" }
+      it { should eq "0200-12345-67890" }
+    end
+
     context "Pocket bell" do
-      let(:val) { "02012345678" }
-      it { should eq "020-1234-5678" }
+      let(:val) { "02042345678" }
+      it { should eq "020-423-45678" }
     end
 
     context "Free dial (0120)" do
