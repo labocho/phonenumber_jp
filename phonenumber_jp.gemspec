@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
 
-  spec.required_ruby_version = ">= 2.4"
+  spec.required_ruby_version = ">= 2.5"
 
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r(^exe/)) {|f| File.basename(f) }
