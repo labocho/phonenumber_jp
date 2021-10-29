@@ -2,6 +2,7 @@ AllCops:
   Exclude:
     - bin/*
     - node_modules/**/*
+  NewCops: enable
 
 Layout/CaseIndentation:
   EnforcedStyle: end
@@ -11,6 +12,9 @@ Layout/EndAlignment:
 
 Layout/EmptyLinesAroundAccessModifier:
   EnforcedStyle: only_before
+
+Layout/LineLength:
+  Enabled: false
 
 Layout/SpaceInLambdaLiteral:
   EnforcedStyle: require_space
@@ -31,9 +35,6 @@ Metrics/ClassLength:
   Enabled: false
 
 Metrics/CyclomaticComplexity:
-  Enabled: false
-
-Metrics/LineLength:
   Enabled: false
 
 Metrics/MethodLength:

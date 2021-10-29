@@ -13,14 +13,11 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/labocho/phonenumber_jp"
   spec.license       = "MIT"
 
-  if spec.respond_to?(:metadata)
-    spec.metadata["homepage_uri"] = spec.homepage
-    spec.metadata["source_code_uri"] = spec.homepage
-    spec.metadata["changelog_uri"] = "https://github.com/labocho/phonenumber_jp/blob/master/CHANGELOG.md"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  raise "RubyGems 2.0 or newer is required to protect against public gem pushes." unless spec.respond_to?(:metadata)
+
+  spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata["source_code_uri"] = spec.homepage
+  spec.metadata["changelog_uri"] = "https://github.com/labocho/phonenumber_jp/blob/master/CHANGELOG.md"
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
