@@ -10,5 +10,5 @@ group :development do
   gem "rake", ">= 10.0"
   gem "rspec", ">= 3.7"
   gem "rubocop", ">= 0.76"
-  gem "steep", ">= 0.41.0"
+  gem "steep", ">= 1.8.3"
 end

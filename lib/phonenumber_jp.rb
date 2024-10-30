@@ -44,15 +44,19 @@ module PhonenumberJp
           /^(0200)(\d\d\d\d\d)(\d\d\d\d\d)$/, # データ伝送携帯電話番号
           /^(0[789]0)(\d\d\d\d)(\d\d\d\d)$/, # 携帯電話・PHS
           /^(050)(\d\d\d\d)(\d\d\d\d)$/ # IP 電話
-        $~.captures
+        # rubocop:disable  Style/RedundantAssignment
+        # @type var parts: [String]
+        parts = $~&.captures
+        parts
+        # rubocop:enable  Style/RedundantAssignment
       when /^0(\d{9})$/ # 固定電話
         return [phonenumber] unless (area_code = find_area_code(phonenumber))
 
         l = area_code.length
         [
-          phonenumber[0..(l - 1)],
-          phonenumber[l..5],
-          phonenumber[6..-1],
+          phonenumber[0..(l - 1)].to_s,
+          phonenumber[l..5].to_s,
+          phonenumber[6..-1].to_s,
         ]
       else
         [phonenumber]
