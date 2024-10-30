@@ -25,6 +25,9 @@ Or install it yourself as:
     PhonenumberJp.hyphenate("0520000000") # "052-000-0000"
     PhonenumberJp.hyphenate("+81300000000") # "+81-3-0000-0000"
 
+    PhonenumberJp.e164("080-1234-5678", delimiter: " ") # "+81 80 1234 5678"
+    PhonenumberJp.local("+818012345678", delimiter: "") # "08012345678"
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
