@@ -3,6 +3,8 @@ module PhonenumberJp
   VERSION: String
 
   def self.hyphenate: (String | nil) -> (String | nil)
+  def self.e164: (String | nil, ?delimiter: String) -> (String | nil)
+  def self.local: (String | nil, ?delimiter: String) -> (String | nil)
   def self.valid?: (String | nil) -> bool
 
   private

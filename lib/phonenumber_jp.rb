@@ -19,6 +19,34 @@ module PhonenumberJp
       split(phonenumber).length > 1
     end
 
+    # @param phonenumber [String, nil]
+    # @param delimiter [String]
+    # @return [String, nil]
+    def e164(phonenumber, delimiter: "-")
+      parts = split(phonenumber)
+      return nil if parts.empty?
+
+      if parts[0] =~ /^0/
+        parts[0..0] = ["+81", parts[0][1..-1].to_s] # steep does not know that `parts[0][1..-1]` will be return String always. Call `to_s` to tell it is String.
+      end
+
+      parts.join(delimiter)
+    end
+
+    # @param phonenumber [String, nil]
+    # @param delimiter [String]
+    # @return [String, nil]
+    def local(phonenumber, delimiter: "-")
+      parts = split(phonenumber)
+      return nil if parts.empty?
+
+      if parts[0] == "+81"
+        parts[0..1] = ["0" + parts[1]]
+      end
+
+      parts.join(delimiter)
+    end
+
     private
     # @param phonenumber [String, nil]
     # @return [Array[String]]

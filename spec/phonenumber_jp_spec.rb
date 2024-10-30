@@ -73,6 +73,42 @@ describe PhonenumberJp do
     end
   end
 
+  describe "e164" do
+    subject { PhonenumberJp.e164(val, delimiter: " ") }
+    context "+81" do
+      let(:val) { "+81594123456" }
+      it { should eq "+81 594 12 3456" }
+    end
+
+    context "Cellular phone" do
+      let(:val) { "08012345678" }
+      it { should eq "+81 80 1234 5678" }
+    end
+
+    context "not match" do
+      let(:val) { "9999999999" }
+      it { should eq "9999999999" }
+    end
+  end
+
+  describe "local" do
+    subject { PhonenumberJp.local(val, delimiter: " ") }
+    context "+81" do
+      let(:val) { "+81594123456" }
+      it { should eq "0594 12 3456" }
+    end
+
+    context "Cellular phone" do
+      let(:val) { "08012345678" }
+      it { should eq "080 1234 5678" }
+    end
+
+    context "not match" do
+      let(:val) { "9999999999" }
+      it { should eq "9999999999" }
+    end
+  end
+
   describe "valid?" do
     subject { PhonenumberJp.valid?(val) }
 
